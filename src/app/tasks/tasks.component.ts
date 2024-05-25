@@ -29,11 +29,16 @@ export class TasksComponent implements OnInit {
 
   toggleTaskCompletion(task: Task): void {
     task.completed = !task.completed;
-    this.taskService.updateTask(task);
+    this.taskService.checkTask(task);
   }
 
   deleteTask(id: number): void {
     this.taskService.deleteTask(id);
+    this.tasks = this.taskService.getTasks();
+  }
+
+  editTask(id: number, data: Task): void {
+    this.taskService.editTask(id, data);
     this.tasks = this.taskService.getTasks();
   }
 }

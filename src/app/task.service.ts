@@ -22,14 +22,22 @@ export class TaskService {
     this.tasks.push(task);
   }
 
-  updateTask(updatedTask: Task): void {
+  checkTask(updatedTask: Task): void {
     const index = this.tasks.findIndex((task) => task.id === updatedTask.id);
     if (index !== -1) {
-      this.tasks[index] = updatedTask;
+      this.tasks[index].completed = !this.tasks[index].completed;
     }
   }
 
   deleteTask(id: number): void {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  editTask(id: number, data: Task): void {
+    const taskToUpdate = this.tasks.find((task) => task.id === id);
+    if (taskToUpdate) {
+      taskToUpdate.name = data.name;
+      taskToUpdate.completed = data.completed;
+    }
   }
 }

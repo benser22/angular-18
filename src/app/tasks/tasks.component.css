@@ -1,9 +1,11 @@
 h1 {
-  color: #5c84ac;
+  color: #b0b9c2;
+  font-size: 48px;
 }
 
-input[type="text"] {
-  margin-right: 10px;
+input {
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 
 ul {
@@ -13,4 +15,20 @@ ul {
 
 li {
   margin: 10px 0;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  color: white;
+  background-color: darkorchid;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+button:hover {
+  color: lightgray;
 }

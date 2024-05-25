@@ -1,9 +1,24 @@
-<div>
-  <h1>Task List</h1>
-  <input [(ngModel)]="newTaskName" placeholder="New task name" />
-  <button (click)="addTask()">Add Task</button>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <h1>CRUD App con Angular</h1>
+  <div>
+    <input [(ngModel)]="newTaskName" placeholder="New task name" />
+    <button (click)="addTask()">Add Task</button>
+  </div>
   <ul>
-    <li *ngFor="let task of tasks">
+    <li
+      *ngFor="let task of tasks"
+      [ngStyle]="{
+        textDecoration: task.completed ? 'line-through' : 'inherit',
+        color: task.completed ? 'gray' : 'inherit'
+      }"
+    >
       <input
         type="checkbox"
         [(ngModel)]="task.completed"
@@ -11,6 +26,17 @@
       />
       {{ task.name }}
       <button (click)="deleteTask(task.id)">Delete</button>
+      <button
+        (click)="
+          editTask(task.id, {
+            id: task.id,
+            name: 'Tarea editada',
+            completed: true
+          })
+        "
+      >
+        Edit
+      </button>
     </li>
   </ul>
 </div>
