@@ -1,0 +1,16 @@
+h1 {
+  color: #5c84ac;
+}
+
+input[type="text"] {
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
