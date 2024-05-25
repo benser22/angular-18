@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../task.service';
-import { Task } from '../types/task.model';
+import { TaskService } from '../../services/task.service';
+import { Task } from '../../types/task.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
