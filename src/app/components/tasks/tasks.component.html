@@ -8,8 +8,12 @@
       margin-top: 4rem;
     "
   >
-    <input [(ngModel)]="newTaskName" placeholder="New task name" />
-    <button (click)="addTask()">Add Task</button>
+    <input
+      [(ngModel)]="newTaskName"
+      placeholder="New task name"
+      style="min-width: 300px"
+    />
+    <button (click)="addTask()" class="button-input">Add Task</button>
   </div>
   <div class="container">
     <ul>
