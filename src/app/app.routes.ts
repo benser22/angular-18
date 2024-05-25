@@ -4,5 +4,5 @@ import { UserComponent } from './components/user/user.component';
 
 export const routes: Routes = [
   { path: '', component: TasksComponent },
-  { path: '/user', component: UserComponent },
+  { path: 'user', component: UserComponent },
 ];

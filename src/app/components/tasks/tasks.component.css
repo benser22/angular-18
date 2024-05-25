@@ -1,34 +1,77 @@
-h1 {
-  color: #b0b9c2;
-  font-size: 48px;
+/* Estilos para el contenedor principal */
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-input {
-  border-radius: 8px;
-  padding: 4px 8px;
+input[type="checkbox"] {
+  transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  padding: 10px;
+  cursor: pointer;
 }
 
+/* Estilos para la lista de tareas */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 li {
-  margin: 10px 0;
-  gap: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #353535;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Estilos para el checkbox y el texto */
+.checkText {
+  font-size: x-large;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+/* Estilos para los botones */
+.row-button {
+  display: flex;
+  gap: 10px;
 }
 
 button {
+  padding: 6px 10px;
+  border: none;
+  background-color: #007bff;
   color: white;
-  background-color: darkorchid;
+  border-radius: 4px;
   cursor: pointer;
-  border-radius: 8px;
-  padding: 4px 8px;
+  font-size: 16px;
+  min-width: 100px;
+  font-weight: 600;
 }
 
 button:hover {
-  color: lightgray;
+  background-color: #0056b3;
+}
+
+/* Estilo para el botón de eliminar */
+button:nth-child(1) {
+  background-color: #dc3545;
+}
+
+button:nth-child(1):hover {
+  background-color: #c82333;
 }

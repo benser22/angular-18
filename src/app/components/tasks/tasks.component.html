@@ -1,42 +1,47 @@
-<div
-  style="
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  "
->
+<div>
   <h1>CRUD App con Angular</h1>
-  <div>
+  <div
+    style="
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-top: 4rem;
+    "
+  >
     <input [(ngModel)]="newTaskName" placeholder="New task name" />
     <button (click)="addTask()">Add Task</button>
   </div>
-  <ul>
-    <li
-      *ngFor="let task of tasks"
-      [ngStyle]="{
-        textDecoration: task.completed ? 'line-through' : 'inherit',
-        color: task.completed ? 'gray' : 'inherit'
-      }"
-    >
-      <input
-        type="checkbox"
-        [(ngModel)]="task.completed"
-        (change)="toggleTaskCompletion(task)"
-      />
-      {{ task.name }}
-      <button (click)="deleteTask(task.id)">Delete</button>
-      <button
-        (click)="
-          editTask(task.id, {
-            id: task.id,
-            name: 'Tarea editada',
-            completed: true
-          })
-        "
-      >
-        Edit
-      </button>
-    </li>
-  </ul>
+  <div class="container">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <div
+          class="checkText"
+          [ngStyle]="{
+            textDecoration: task.completed ? 'line-through' : 'inherit',
+            color: task.completed ? 'gray' : 'inherit'
+          }"
+        >
+          <input
+            type="checkbox"
+            [(ngModel)]="task.completed"
+            (change)="toggleTaskCompletion(task)"
+          />
+          <p class="text" (click)="toggleTaskCompletion(task)">
+            {{ task.name }}
+          </p>
+        </div>
+        <div class="row-button">
+          <button (click)="deleteTask(task.id)">Delete</button>
+          <button (click)="openEditModal(task)">Edit</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <app-edit-task-modal
+    *ngIf="taskToEdit"
+    [task]="taskToEdit"
+    (closeModal)="closeEditModal()"
+    (saveTask)="saveTask($event)"
+  ></app-edit-task-modal>
 </div>
